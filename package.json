@@ -1,6 +1,6 @@
 {
   "name": "dancing-button",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "typescript simple module template",
   "main": "dist/index.js",
   "type": "module",

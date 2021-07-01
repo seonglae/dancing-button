@@ -1,9 +1,9 @@
-type Point ={
+type Point = {
   x: number
   y: number
 }
 
-type DaningPoint ={
+type DaningPoint = {
   x: number
   y: number
   ox: number
@@ -58,14 +58,14 @@ class DancingButton {
         points: [],
         viscosity: 0.7,
         mouseForce: 100,
-        forceLimit: 2
+        forceLimit: 2,
       },
       {
         points: [],
         viscosity: 0.3,
         mouseForce: 150,
-        forceLimit: 3
-      }
+        forceLimit: 3,
+      },
     ]
     for (let layerIndex = 0; layerIndex < this.layers.length; layerIndex++) {
       const layer = this.layers[layerIndex]
@@ -76,8 +76,7 @@ class DancingButton {
       this.svg.appendChild(layer.path)
     }
     this.wrapperElement = options.wrapperElement || document.body
-    if (!this.svg.parentElement)
-      this.wrapperElement.append(this.svg)
+    if (!this.svg.parentElement) this.wrapperElement.append(this.svg)
 
     this.svgText = <HTMLElement>document.createElementNS(this.xmlns, 'text')
     this.svgText.setAttribute('x', '50%')
@@ -103,17 +102,17 @@ class DancingButton {
     this.initOrigins()
     this.animate()
   }
-  
-    mouseHandler (e: MouseEvent) {
-      this.touches = [
+
+  get mouseHandler() {
+    return (e: MouseEvent) =>
+      (this.touches = [
         {
           x: e.offsetX,
           y: e.offsetY,
-          force: 1
-        }
-      ]
-      return
-    }
+          force: 1,
+        },
+      ])
+  }
 
   get touchHandler() {
     return (e: TouchEvent) => {
@@ -133,17 +132,13 @@ class DancingButton {
 
   touches: Array<any>
   get clearHandler() {
-    return () => this.touches = []
+    return () => (this.touches = [])
   }
 
   #raf: Function | null = null
 
   get raf() {
-    return (
-      this.#raf ||
-      (this.#raf = ( window.requestAnimationFrame || window.webkitRequestAnimationFrame
-      ).bind(window))
-    )
+    return this.#raf || (this.#raf = (window.requestAnimationFrame || window.webkitRequestAnimationFrame).bind(window))
   }
 
   distance(p1: Point, p2: Point) {
@@ -194,17 +189,17 @@ class DancingButton {
 
         const line = {
           x: next.x - prev.x,
-          y: next.y - prev.y
+          y: next.y - prev.y,
         }
         const dLine = Math.sqrt(line.x * line.x + line.y * line.y)
 
         point.cPrev = {
           x: point.x - (line.x / dLine) * dPrev * this.tension,
-          y: point.y - (line.y / dLine) * dPrev * this.tension
+          y: point.y - (line.y / dLine) * dPrev * this.tension,
         }
         point.cNext = {
           x: point.x + (line.x / dLine) * dNext * this.tension,
-          y: point.y + (line.y / dLine) * dNext * this.tension
+          y: point.y + (line.y / dLine) * dNext * this.tension,
         }
       }
     }
@@ -231,8 +226,7 @@ class DancingButton {
       const layer = this.layers[layerIndex]
       if (layerIndex === 1) {
         if (this.touches.length > 0) {
-          while (this.svgDefs.firstChild) 
-            this.svgDefs.removeChild(this.svgDefs.firstChild)
+          while (this.svgDefs.firstChild) this.svgDefs.removeChild(this.svgDefs.firstChild)
           for (let touchIndex = 0; touchIndex < this.touches.length; touchIndex++) {
             const touch = this.touches[touchIndex]
             const gradient = document.createElementNS(this.xmlns, 'radialGradient')
@@ -251,7 +245,7 @@ class DancingButton {
             gradient.setAttribute('r', touch.force)
             layer.path.style.fill = 'url(#' + gradient.id + ')'
           }
-        } else  layer.path.style.fill = this.color2
+        } else layer.path.style.fill = this.color2
       } else layer.path.style.fill = this.color1
 
       const points = layer.points
@@ -282,10 +276,10 @@ class DancingButton {
       ox: x,
       oy: y,
       vx: 0,
-      vy: 0
+      vy: 0,
     }
   }
-  
+
   initOrigins() {
     this.svg.setAttribute('width', String(this.svgWidth))
     this.svg.setAttribute('height', String(this.svgHeight))
