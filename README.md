@@ -1,8 +1,6 @@
 # Dancing Button
+![asd](https://img.shields.io/lgtm/grade/javascript/g/seonglae/dancing-button.svg?logo=lgtm&logoWidth=18)
 ### typescript implementation of [liquid button v2](https://codepen.io/Zaku/pen/eRmRxz)
-
-[![button](image/button.gif)](https://github.com/seonglae/intuiter)
-
 ### Above app is [Intuiter](https://github.com/seonglae/intuiter)
 
 <br/>
