@@ -11,6 +11,7 @@ type DaningPoint = {
   vx: number
   vy: number
 }
+
 class DancingButton {
   static count = 0
   id: string
