@@ -1,17 +1,17 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@types/node': 14.18.33
+  '@types/node': 14.18.34
   typescript: 4.9.3
 
 devDependencies:
-  '@types/node': 14.18.33
+  '@types/node': 14.18.34
   typescript: 4.9.3
 
 packages:
 
-  /@types/node/14.18.33:
-    resolution: {integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==}
+  /@types/node/14.18.34:
+    resolution: {integrity: sha512-hcU9AIQVHmPnmjRK+XUUYlILlr9pQrsqSrwov/JK1pnf3GTQowVBhx54FbvM0AU/VXGH4i3+vgXS5EguR7fysA==}
     dev: true
 
   /typescript/4.9.3:
